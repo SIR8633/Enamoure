@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ÉNAMOURE | Haute Parfumerie Pour Homme</title>
+    <!-- Google Fonts: Playfair Display (Títulos) y Montserrat (Cuerpo) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* Variables de Paleta Cromática - Brandbook ÉNAMOURE */
+        :root {
+            --nuit-parisienne: #1A1A1A;
+            --blanc-creme: #F2EBE5;
+            --or-vintage: #D4AF37;
+            --rouge-bordeaux: #800020;
+            --font-title: 'Playfair Display', serif;
+            --font-body: 'Montserrat', sans-serif;
+        }
+
+        /* Reset y Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--nuit-parisienne);
+            /* Fondo oscuro por defecto */
+            color: var(--blanc-creme);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .logo {
+            font-family: var(--font-title);
+            font-weight: 600;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navegación */
+        header {
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: transparent;
+            position: absolute;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 2rem;
+            letter-spacing: 2px;
+            color: var(--blanc-creme);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--blanc-creme);
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--or-vintage);
+        }
+
+        /* Hero Section - Oscuro y masculino */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 5%;
+            /* Imagen de fondo elegante/masculina con overlay oscuro */
+            background: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.95)), url('assets/images/hero_background.jpg') center/cover;
+            color: var(--blanc-creme);
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
+            color: var(--or-vintage);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 650px;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            color: #d1d1d1;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: var(--or-vintage);
+            color: var(--nuit-parisienne);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            border: 1px solid var(--or-vintage);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--or-vintage);
+        }
+
+        /* Colecciones (Tipos de Amour) */
+        .collections {
+            padding: 6rem 5%;
+            text-align: center;
+            background-color: var(--blanc-creme);
+            color: var(--nuit-parisienne);
+        }
+
+        .collections h2 {
+            font-size: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 2.5rem 2rem;
+            border: 1px solid rgba(26, 26, 26, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+            border-color: var(--or-vintage);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+            color: var(--nuit-parisienne);
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .btn-card {
+            padding: 0.8rem 1.5rem;
+            background-color: transparent;
+            color: var(--nuit-parisienne);
+            border: 1px solid var(--nuit-parisienne);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            align-self: center;
+        }
+
+        .btn-card:hover {
+            background-color: var(--nuit-parisienne);
+            color: var(--blanc-creme);
+        }
+
+        /* Experiencia Unboxing */
+        .experience {
+            background-color: var(--nuit-parisienne);
+            color: var(--blanc-creme);
+            padding: 6rem 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+        }
+
+        .experience-content {
+            flex: 1;
+        }
+
+        .experience-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--or-vintage);
+        }
+
+        .experience-content p {
+            margin-bottom: 1rem;
+            font-weight: 300;
+            color: #ccc;
+            font-size: 1.05rem;
+        }
+
+        .experience-image {
+            flex: 1;
+            height: 450px;
+            /* Imagen oscura de lujo/madera/cuero */
+            background: url('assets/images/experience_bg.jpg') center/cover;
+            border-radius: 4px;
+        }
+
+        /* Botón Flotante WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 5%;
+            background-color: #111;
+            color: var(--blanc-creme);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+                background-color: var(--nuit-parisienne);
+                position: relative;
+                padding-bottom: 1.5rem;
+            }
+
+            .hero {
+                height: 80vh;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .experience {
+                flex-direction: column;
+            }
+
+            .experience-image {
+                width: 100%;
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">ÉNAMOURE</div>
+        <nav>
+            <ul>
+                <li><a href="#colecciones">El Club</a></li>
+                <li><a href="#experiencia">Sastrería Olfativa</a></li>
+                <li><a href="#regalos">Kits & Regalos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Tu Firma Olfativa</h1>
+        <p>El club exclusivo de alta perfumería para el hombre moderno. Encuentra la fragancia que define tu presencia,
+            o arma el regalo perfecto (Kits Femeninos, Masculinos y Mixtos).</p>
+        <a href="#colecciones" class="btn">Explorar Colección</a>
+    </section>
+
+    <section id="colecciones" class="collections">
+        <h2>La Selección del Concierge</h2>
+        <div class="grid">
+            <!-- Amour Pur -->
+            <div class="card">
+                <h3>Amour Pur</h3>
+                <p>Cítricos, acuáticos y maderas limpias. La elección infalible para proyectar pulcritud y seguridad en
+                    el día a día o la oficina.</p>
+                <a href="#" class="btn-card">Ver Decants</a>
+            </div>
+
+            <!-- Amour Venon -->
+            <div class="card" style="border-top: 3px solid var(--rouge-bordeaux);">
+                <h3 style="color: var(--rouge-bordeaux);">Amour Venon</h3>
+                <p>Maderas oscuras, cuero, tabaco y especias. Fragancias magnéticas diseñadas estrictamente para la
+                    seducción nocturna.</p>
+                <a href="#" class="btn-card">Ver Decants</a>
+            </div>
+
+            <!-- Amour Fou -->
+            <div class="card">
+                <h3>Amour Fou</h3>
+                <p>Oud, resinas y perfumería nicho. Para el hombre audaz que busca dejar una estela única e irrepetible
+                    al entrar a una sala.</p>
+                <a href="#" class="btn-card">Ver Decants</a>
+            </div>
+
+            <!-- Cadeau Parfait (Kits & Regalos) -->
+            <div class="card" id="regalos"
+                style="background-color: var(--nuit-parisienne); color: var(--blanc-creme); border-top: 3px solid var(--or-vintage);">
+                <h3 style="color: var(--or-vintage);">Cadeau Parfait</h3>
+                <p style="color: #ccc;">No pierdas tiempo buscando. Seleccionamos fragancias Female, Male & Mix para que
+                    armes el combo y regalo perfecto.</p>
+                <a href="#" class="btn-card" style="border-color: var(--or-vintage); color: var(--or-vintage);">Armar mi
+                    Kit</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="experiencia" class="experience">
+        <div class="experience-image"></div>
+        <div class="experience-content">
+            <h2>Sastrería a Medida</h2>
+            <p>En Énamoure operamos con la precisión de un sastre. Cada decant es extraído en un entorno controlado con
+                instrumental estéril, preservando el 100% del ADN del perfume original.</p>
+            <p>Recibes tu fragancia en un envase de vidrio pesado, masculino y elegante, envuelto en papel seda oscuro
+                dentro de una caja de presentación impecable. Listo para ti, o listo para regalar.</p>
+            <br>
+            <a href="#" class="btn"
+                style="border-color: var(--or-vintage); color: var(--nuit-parisienne); background-color: var(--or-vintage);">Conocer
+                el Proceso</a>
+        </div>
+    </section>
+
+    <footer>
+        <h2 class="logo" style="margin-bottom: 1rem; color: var(--or-vintage);">ÉNAMOURE</h2>
+        <p style="font-size: 0.8rem; color: #888;">© 2026 Énamoure Haute Parfumerie Pour Homme. Todos los derechos
+            reservados.</p>
+    </footer>
+
+    <!-- Botón Flotante de WhatsApp para conectar con el Agente Concierge -->
+    <a href="https://wa.me/1234567890?text=Bonjour,%20monsieur!%20Me%20gustar%C3%ADa%20recibir%20asesoramiento%20de%20su%20Concierge."
+        class="whatsapp-float" target="_blank" title="Habla con nuestro Concierge">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
+            <path
+                d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c-.003 1.396.366 2.76 1.062 3.961L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c.004-3.639 2.961-6.592 6.608-6.592a6.56 6.56 0 0 1 4.66 1.932 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.608 6.592z" />
+            <path
+                d="M11.846 9.771c-.192-.096-1.139-.563-1.315-.628-.176-.065-.304-.096-.432.096-.128.192-.496.628-.608.761-.112.132-.224.148-.416.052-.192-.096-.81-.299-1.543-.953-.574-.51-1.033-1.144-1.155-1.336-.121-.192-.013-.296.083-.392.087-.087.192-.224.288-.336.096-.112.128-.192.192-.32.064-.128.032-.24-.016-.336-.048-.096-.432-1.04-.592-1.424-.156-.375-.316-.324-.432-.33-.112-.005-.24-.006-.368-.006-.128 0-.336.048-.512.24-.176.192-.672.656-.672 1.596 0 .94.688 1.848.784 1.976.096.128 1.352 2.066 3.276 2.888.456.195.812.312 1.09.4.458.146.875.125 1.204.076.366-.055 1.139-.465 1.3-.914.16-.448.16-.832.112-.914-.048-.082-.176-.128-.368-.224z" />
+        </svg>
+    </a>
+
+    <!-- Efectos de Sonido Estilo Perfumería -->
+    <!-- Nota: Aquí se deben reemplazar los SRC por los audios generados por IA -->
+    <audio id="spraySound" src="assets/audio/spray_ia.mp3" preload="auto"></audio>
+    <audio id="wooshSound" src="assets/audio/transition_ia.mp3" preload="auto"></audio>
+
+    <script>
+        const spraySound = document.getElementById('spraySound');
+        const wooshSound = document.getElementById('wooshSound');
+
+        // Sonido de spray de perfume al pasar el mouse por los botones
+        document.querySelectorAll('.btn, .btn-card').forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                if (spraySound) {
+                    spraySound.currentTime = 0;
+                    spraySound.volume = 0.2;
+                    spraySound.play().catch(e => { /* Ignorar error si el usuario no ha interactuado */ });
+                }
+            });
+        });
+
+        // Transición y sonido suave en la navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                if (wooshSound) {
+                    wooshSound.currentTime = 0;
+                    wooshSound.volume = 0.3;
+                    wooshSound.play().catch(e => { });
+                }
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
