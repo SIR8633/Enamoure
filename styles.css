@@ -1,0 +1,283 @@
+        /* Variables de Paleta Cromática - Brandbook ÉNAMOURE */
+        :root {
+            --nuit-parisienne: #1A1A1A;
+            --blanc-creme: #F2EBE5;
+            --or-vintage: #D4AF37;
+            --rouge-bordeaux: #800020;
+            --font-title: 'Playfair Display', serif;
+            --font-body: 'Montserrat', sans-serif;
+        }
+
+        /* Reset y Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--nuit-parisienne);
+            /* Fondo oscuro por defecto */
+            color: var(--blanc-creme);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .logo {
+            font-family: var(--font-title);
+            font-weight: 600;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navegación */
+        header {
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: transparent;
+            position: absolute;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 2rem;
+            letter-spacing: 2px;
+            color: var(--blanc-creme);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--blanc-creme);
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--or-vintage);
+        }
+
+        /* Hero Section - Oscuro y masculino */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 5%;
+            /* Imagen de fondo elegante/masculina con overlay oscuro */
+            background: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.95)), url('../assets/images/hero_background.jpg') center/cover;
+            color: var(--blanc-creme);
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
+            color: var(--or-vintage);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 650px;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            color: #d1d1d1;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: var(--or-vintage);
+            color: var(--nuit-parisienne);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            border: 1px solid var(--or-vintage);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--or-vintage);
+        }
+
+        /* Colecciones (Tipos de Amour) */
+        .collections {
+            padding: 6rem 5%;
+            text-align: center;
+            background-color: var(--blanc-creme);
+            color: var(--nuit-parisienne);
+        }
+
+        .collections h2 {
+            font-size: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 2.5rem 2rem;
+            border: 1px solid rgba(26, 26, 26, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+            border-color: var(--or-vintage);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+            color: var(--nuit-parisienne);
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .btn-card {
+            padding: 0.8rem 1.5rem;
+            background-color: transparent;
+            color: var(--nuit-parisienne);
+            border: 1px solid var(--nuit-parisienne);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            align-self: center;
+        }
+
+        .btn-card:hover {
+            background-color: var(--nuit-parisienne);
+            color: var(--blanc-creme);
+        }
+
+        /* Experiencia Unboxing */
+        .experience {
+            background-color: var(--nuit-parisienne);
+            color: var(--blanc-creme);
+            padding: 6rem 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+        }
+
+        .experience-content {
+            flex: 1;
+        }
+
+        .experience-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--or-vintage);
+        }
+
+        .experience-content p {
+            margin-bottom: 1rem;
+            font-weight: 300;
+            color: #ccc;
+            font-size: 1.05rem;
+        }
+
+        .experience-image {
+            flex: 1;
+            height: 450px;
+            /* Imagen oscura de lujo/madera/cuero */
+            background: url('../assets/images/experience_bg.jpg') center/cover;
+            border-radius: 4px;
+        }
+
+        /* Botón Flotante WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 5%;
+            background-color: #111;
+            color: var(--blanc-creme);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+                background-color: var(--nuit-parisienne);
+                position: relative;
+                padding-bottom: 1.5rem;
+            }
+
+            .hero {
+                height: 80vh;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .experience {
+                flex-direction: column;
+            }
+
+            .experience-image {
+                width: 100%;
+                height: 300px;
+            }
+        }
