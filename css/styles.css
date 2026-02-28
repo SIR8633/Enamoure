@@ -84,7 +84,7 @@
             text-align: center;
             padding: 0 5%;
             /* Imagen de fondo elegante/masculina con overlay oscuro */
-            background: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.95)), url('../assets/images/hero_background.jpg') center/cover;
+            background: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.95)), url('../assets/images/hero_background.png') center/cover;
             color: var(--blanc-creme);
         }
 
@@ -218,7 +218,7 @@
             flex: 1;
             height: 450px;
             /* Imagen oscura de lujo/madera/cuero */
-            background: url('../assets/images/experience_bg.jpg') center/cover;
+            background: url('../assets/images/experience_bg.png') center/cover;
             border-radius: 4px;
         }
 
