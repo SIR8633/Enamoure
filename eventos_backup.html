@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Événements ÉNAMOUR | Sastrería Olfativa</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .event-hero {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1512389142860-9c449e58a543?q=80&w=2069&auto=format&fit=crop') center/cover;
+            border-bottom: 1px solid var(--color-gold);
+        }
+        .event-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 4rem;
+            align-items: center;
+        }
+        .event-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--color-gold);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="container" style="padding: 2rem 0; display: flex; justify-content: space-between; align-items: center;">
+        <a href="index.html" style="font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase;">← Maison</a>
+        <h2 style="font-size: 1.2rem; color: var(--or-vintage); letter-spacing: 0.3em;">ÉVÉNEMENTS</h2>
+        <div style="width: 80px;"></div>
+    </header>
+
+    <section class="event-hero">
+        <h1 class="reveal" style="font-size: 4rem;">L'Expérience Privée</h1>
+        <p class="reveal" style="letter-spacing: 0.5em; text-transform: uppercase; color: var(--color-gold); margin-top: 1rem;">Sastrería Olfativa pour vos Événements</p>
+    </section>
+
+    <main class="container">
+        <div class="event-grid">
+            <div class="event-text reveal">
+                <h2>Le Bar à Parfum</h2>
+                <p>Ofrecemos una experiencia única para bodas, eventos corporativos y celebraciones privadas. Nuestro "Bar de Perfumes" permite a sus invitados descubrir fragancias exclusivas y llevarse un decant personalizado como recuerdo de una noche inolvidable.</p>
+                <p style="margin-top: 1.5rem;">Un toque de distinción francesa que transforma la atmósfera de su evento.</p>
+                <a href="#" class="btn-luxury">Demander un Devis</a>
+            </div>
+            <div class="event-image reveal" style="animation-delay: 0.3s;">
+                <div style="width: 100%; height: 400px; background: rgba(255,255,255,0.05); border: 1px solid var(--color-border); display: flex; justify-content: center; align-items: center; font-family: var(--font-heading); font-style: italic; color: var(--color-text-muted);">
+                    [ Photographie de Sastrería Olfativa ]
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="container" style="padding: 6rem 0; text-align: center; border-top: 1px solid var(--color-border); margin-top: 4rem;">
+        <p style="font-size: 0.7rem; color: var(--color-text-muted); letter-spacing: 0.1em;">© 2026 ÉNAMOUR ÉVÉNEMENTS - ARGENTINA</p>
+    </footer>
+
+    <!-- Botón Flotante de WhatsApp para conectar con el Agente Concierge -->
+    <a href="https://wa.me/5491178285444?text=Bonjour,%20monsieur!%20Me%20gustar%C3%ADa%20recibir%20asesoramiento%20de%20su%20Concierge."
+        class="whatsapp-float" target="_blank" title="Habla con nuestro Concierge">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
+            <path
+                d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c-.003 1.396.366 2.76 1.062 3.961L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c.004-3.639 2.961-6.592 6.608-6.592a6.56 6.56 0 0 1 4.66 1.932 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.608 6.592z" />
+            <path
+                d="M11.846 9.771c-.192-.096-1.139-.563-1.315-.628-.176-.065-.304-.096-.432.096-.128.192-.496.628-.608.761-.112.132-.224.148-.416.052-.192-.096-.81-.299-1.543-.953-.574-.51-1.033-1.144-1.155-1.336-.121-.192-.013-.296.083-.392.087-.087.192-.224.288-.336.096-.112.128-.192.192-.32.064-.128.032-.24-.016-.336-.048-.096-.432-1.04-.592-1.424-.156-.375-.316-.324-.432-.33-.112-.005-.24-.006-.368-.006-.128 0-.336.048-.512.24-.176.192-.672.656-.672 1.596 0 .94.688 1.848.784 1.976.096.128 1.352 2.066 3.276 2.888.456.195.812.312 1.09.4.458.146.875.125 1.204.076.366-.055 1.139-.465 1.3-.914.16-.448.16-.832.112-.914-.048-.082-.176-.128-.368-.224z" />
+        </svg>
+    </a>
+</body>
+</html>

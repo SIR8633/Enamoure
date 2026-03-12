@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ènamour Femme | Catálogo de Decants de Lujo</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* NAV */
+        .nav-top {
+            position: fixed; top: 0; left: 0; right: 0;
+            padding: 1.4rem 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 100;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.97), transparent);
+            backdrop-filter: blur(4px);
+        }
+
+        /* HERO HEADER */
+        .catalog-hero {
+            padding: 7rem 0 3rem;
+            text-align: center;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        /* GRID */
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 0;
+        }
+
+        /* CARD BASE */
+        .perfume-card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--color-border);
+            text-align: center;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .perfume-card::after {
+            content: '';
+            position: absolute; bottom: 0; left: 0;
+            width: 0; height: 2px;
+            background: var(--color-champagne);
+            transition: width 0.5s ease;
+        }
+        .perfume-card:hover::after { width: 100%; }
+        .perfume-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(242,209,193,0.35);
+            background: rgba(242,209,193,0.03);
+        }
+
+        /* CARD IMAGE */
+        .card-img {
+            width: 100%; height: 200px;
+            object-fit: cover; object-position: center;
+            display: block;
+            filter: brightness(0.85);
+            transition: filter 0.5s ease;
+        }
+        .perfume-card:hover .card-img { filter: brightness(1); }
+
+        /* CARD BODY */
+        .card-body { padding: 1.8rem; }
+        .perfume-badge {
+            font-size: 0.55rem; letter-spacing: 0.2em; color: var(--color-champagne);
+            text-transform: uppercase; border: 1px solid var(--color-champagne);
+            padding: 0.2rem 0.6rem; display: inline-block; margin-bottom: 1rem;
+        }
+        .perfume-brand {
+            font-size: 0.6rem; letter-spacing: 0.35em; text-transform: uppercase;
+            color: var(--color-text-muted); margin-bottom: 0.5rem;
+        }
+        .perfume-name {
+            font-family: var(--font-heading); font-style: italic;
+            font-size: 1.5rem; margin-bottom: 1.2rem;
+        }
+        .perfume-price-label {
+            font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--color-text-muted); margin-bottom: 0.3rem;
+        }
+        .perfume-price {
+            font-size: 1.5rem; font-weight: 600; color: var(--color-champagne);
+        }
+        .perfume-price span {
+            font-size: 0.65rem; color: var(--color-text-muted); font-weight: 300;
+        }
+        .btn-card {
+            display: inline-block; padding: 0.7rem 1.8rem;
+            border: 1px solid var(--color-champagne); color: var(--color-champagne);
+            font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+            margin-top: 1.5rem; transition: all 0.35s ease;
+        }
+        .btn-card:hover { background: var(--color-champagne); color: var(--color-bg); }
+
+        /* SUR COMMANDE CARD (special) */
+        .sur-commande-card {
+            border: 1px solid var(--color-champagne);
+            background: rgba(242,209,193,0.03);
+            text-align: center; position: relative;
+            overflow: hidden; cursor: pointer;
+            transition: all 0.5s ease;
+        }
+        .sur-commande-card:hover {
+            background: rgba(242,209,193,0.07);
+            transform: translateY(-6px);
+        }
+        .sc-badge {
+            position: absolute; top: 1rem; right: 1rem;
+            background: var(--color-champagne); color: var(--color-bg);
+            font-size: 0.5rem; letter-spacing: 0.2em; text-transform: uppercase;
+            padding: 0.25rem 0.6rem;
+        }
+        .sc-img {
+            width: 100%; height: 200px;
+            object-fit: cover; object-position: center;
+            filter: brightness(0.6) sepia(0.1);
+            transition: filter 0.5s ease;
+        }
+        .sur-commande-card:hover .sc-img { filter: brightness(0.75) sepia(0.05); }
+        .sc-body { padding: 1.8rem; }
+        .sc-title {
+            font-family: var(--font-heading); font-size: 1.6rem;
+            color: var(--color-champagne); font-style: italic; margin-bottom: 0.7rem;
+        }
+        .sc-subtitle {
+            font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase;
+            color: var(--color-text-muted); margin-bottom: 1.2rem;
+        }
+        .sc-desc {
+            font-size: 0.82rem; color: var(--color-text-muted);
+            line-height: 1.8; margin-bottom: 1.5rem;
+        }
+        .btn-sc {
+            display: inline-block; padding: 0.9rem 2.5rem;
+            background: var(--color-champagne); color: var(--color-bg);
+            font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+            transition: all 0.35s ease;
+        }
+        .btn-sc:hover {
+            background: transparent;
+            color: var(--color-champagne);
+            border: 1px solid var(--color-champagne);
+        }
+
+        /* ====== SUSCRIPCIÓN ====== */
+        .subscription-section {
+            margin: 3rem 0 5rem;
+            border-top: 1px solid var(--color-border);
+            padding-top: 5rem;
+        }
+        .section-eyebrow {
+            font-size: 0.6rem; letter-spacing: 0.5em; text-transform: uppercase;
+            color: var(--color-champagne); margin-bottom: 1.2rem;
+        }
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3.5rem;
+        }
+        .plan-card {
+            border: 1px solid var(--color-border);
+            padding: 3rem 2rem; text-align: center;
+            position: relative; transition: all 0.4s ease;
+        }
+        .plan-card:hover {
+            border-color: var(--color-champagne);
+            transform: translateY(-5px);
+        }
+        .plan-card.featured {
+            border-color: var(--color-champagne);
+            background: rgba(242,209,193,0.04);
+        }
+        .plan-badge-feat {
+            position: absolute; top: -1px; left: 50%;
+            transform: translateX(-50%);
+            background: var(--color-champagne); color: var(--color-bg);
+            font-size: 0.5rem; letter-spacing: 0.2em; text-transform: uppercase;
+            padding: 0.25rem 1rem; white-space: nowrap;
+        }
+        .plan-icon { font-size: 1.8rem; margin-bottom: 1.2rem; }
+        .plan-name {
+            font-family: var(--font-heading); font-size: 1.3rem;
+            font-style: italic; color: var(--color-champagne);
+            margin-bottom: 0.4rem;
+        }
+        .plan-esp {
+            font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase;
+            color: var(--color-text-muted); margin-bottom: 1.5rem;
+        }
+        .plan-desc {
+            font-size: 0.8rem; color: var(--color-text-muted);
+            line-height: 1.8; margin-bottom: 2rem;
+        }
+        .plan-features {
+            list-style: none; text-align: left; margin-bottom: 2rem;
+        }
+        .plan-features li {
+            font-size: 0.78rem; color: var(--color-text-muted);
+            padding: 0.4rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .plan-features li::before {
+            content: "✦ "; color: var(--color-champagne); font-size: 0.55rem;
+        }
+        .btn-plan {
+            display: inline-block; width: 100%; padding: 0.9rem 0;
+            border: 1px solid var(--color-champagne); color: var(--color-champagne);
+            font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
+            transition: all 0.35s ease;
+        }
+        .btn-plan:hover { background: var(--color-champagne); color: var(--color-bg); }
+
+        @media (max-width: 768px) {
+            .plans-grid { grid-template-columns: 1fr; }
+            .catalog-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav-top">
+        <a href="homme.html" style="font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--color-gold);">← Homme</a>
+        <span style="font-family: var(--font-heading); font-size: 1rem; letter-spacing: 0.4em; color: var(--color-champagne);">ÉNAMOUR</span>
+        <a href="index.html" style="font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--color-text-muted);">Maison →</a>
+    </nav>
+
+    <header class="catalog-hero">
+        <p style="font-size: 0.6rem; letter-spacing: 0.55em; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: 1rem;">Catálogo · 2026</p>
+        <h1 style="font-family: var(--font-heading); font-size: 3.5rem; color: var(--color-champagne); font-weight: 400;">Ènamour Femme</h1>
+        <div style="width: 50px; height: 1px; background: var(--color-champagne); margin: 1.5rem auto;"></div>
+        <p style="font-size: 0.78rem; color: var(--color-text-muted); max-width: 480px; margin: 0 auto; line-height: 1.9;">
+            Esencias femeninas icónicas, en decants de 5ml. 100% originales, empaquetadas con el cuidado que merecés.
+        </p>
+    </header>
+
+    <div class="container">
+        <div id="perfume-list" class="catalog-grid"></div>
+    </div>
+
+    <!-- ====== SUSCRIPCIÓN ====== -->
+    <section class="container subscription-section">
+        <div style="text-align: center; max-width: 580px; margin: 0 auto;">
+            <p class="section-eyebrow">Abonnement Privé</p>
+            <h2 style="font-family: var(--font-heading); font-size: 2.6rem; font-weight: 400; line-height: 1.2;">
+                Tu fragancia favorita,<br>cuando vos querés.
+            </h2>
+            <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 1.5rem; line-height: 1.9;">
+                Diseñamos planes de suscripción personalizados. Elegí tus fragancias y nosotros las enviamos a tu puerta mensualmente, en fechas especiales o en tu cumpleaños.
+            </p>
+        </div>
+
+        <div class="plans-grid">
+
+            <div class="plan-card">
+                <div class="plan-icon">📅</div>
+                <p class="plan-name">Mensuel</p>
+                <p class="plan-esp">Suscripción Mensual</p>
+                <p class="plan-desc">Recibí 1 decant de tu elección cada mes, directamente en tu casa.</p>
+                <ul class="plan-features">
+                    <li>1 decant 5ml por mes</li>
+                    <li>Fragancia elegida por vos</li>
+                    <li>Embalaje premium</li>
+                    <li>Envío incluido</li>
+                    <li>Podés cambiar de fragancia mensualmente</li>
+                </ul>
+                <a href="#contacto" class="btn-plan">Empezar Plan</a>
+            </div>
+
+            <div class="plan-card featured">
+                <div class="plan-badge-feat">★ Más Elegido</div>
+                <div class="plan-icon">💌</div>
+                <p class="plan-name">Anniversaire</p>
+                <p class="plan-esp">Plan por Fechas Especiales</p>
+                <p class="plan-desc">Un regalo sorpresa en las fechas que más importan: cumpleaños, Día de la Madre, aniversarios.</p>
+                <ul class="plan-features">
+                    <li>Elegís las fechas de envío</li>
+                    <li>Hasta 6 fechas al año</li>
+                    <li>Carta personalizada incluida</li>
+                    <li>Embalaje regalo de lujo</li>
+                    <li>Recordatorio previo para confirmar</li>
+                </ul>
+                <a href="#contacto" class="btn-plan">Empezar Plan</a>
+            </div>
+
+            <div class="plan-card">
+                <div class="plan-icon">✦</div>
+                <p class="plan-name">Bespoke</p>
+                <p class="plan-esp">Plan a tu Medida</p>
+                <p class="plan-desc">Charlamos con vos, entendemos tu perfil olfativo y diseñamos un plan completamente personalizado.</p>
+                <ul class="plan-features">
+                    <li>Consulta olfativa personal</li>
+                    <li>Selección curada por expertos</li>
+                    <li>Frecuencia a tu elección</li>
+                    <li>Box sorpresa o lista fija</li>
+                    <li>Acceso prioritario a nuevas fragancias</li>
+                </ul>
+                <a href="#contacto" class="btn-plan">Consultar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT ANCHOR -->
+    <div id="contacto" class="container" style="text-align: center; padding: 5rem 0; border-top: 1px solid var(--color-border);">
+        <p style="font-size: 0.6rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: 1.2rem;">¿Listo para comenzar?</p>
+        <h2 style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 400; margin-bottom: 2rem;">Contactanos</h2>
+        <p style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.9; max-width: 460px; margin: 0 auto 2.5rem;">
+            Escribinos por WhatsApp o Instagram para iniciar tu plan de suscripción o hacer un pedido a medida. Te respondemos en menos de 24hs.
+        </p>
+        <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+            <a href="#" class="btn-card" style="border-color: var(--color-champagne); color: var(--color-champagne);">WhatsApp</a>
+            <a href="#" class="btn-card" style="border-color: var(--color-text-muted); color: var(--color-text-muted);">Instagram</a>
+        </div>
+    </div>
+
+    <footer style="padding: 3rem 5%; border-top: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center;">
+        <a href="index.html" style="font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--color-text-muted);">← Volver a la Maison</a>
+        <p style="font-size: 0.6rem; color: var(--color-text-muted); letter-spacing: 0.1em;">© 2026 ÉNAMOUR PARFUMS · ARGENTINA</p>
+        <a href="homme.html" style="font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--color-gold);">Homme →</a>
+    </footer>
+
+    <script>
+        const PERFUMES_FEMME = [
+            { id: "f1",  name: "Scandal",           brand: "Jean Paul Gaultier",  type: "EDP", price: 18400, notes: "Gardenia, Miel, Madera" },
+            { id: "f2",  name: "Good Girl",          brand: "Carolina Herrera",    type: "EDP", price: 18800, notes: "Jazmín, Cacao, Tuberosa" },
+            { id: "f3",  name: "Black Opium",        brand: "Yves Saint Laurent",  type: "EDP", price: 18700, notes: "Café, Vainilla, Patchouli" },
+            { id: "f4",  name: "La Vie Est Belle",   brand: "Lancôme",             type: "EDP", price: 19900, notes: "Iris, Pralinée, Vainilla" },
+            { id: "f5",  name: "Libre",              brand: "Yves Saint Laurent",  type: "EDP", price: 15000, notes: "Lavanda, Jazmín, Ámbar" },
+            { id: "f6",  name: "Coco Mademoiselle",  brand: "Chanel",              type: "EDP", price: 21000, notes: "Naranja, Rosa, Patchouli" },
+            { id: "f7",  name: "Flowerbomb",         brand: "Viktor & Rolf",       type: "EDP", price: 17000, notes: "Jazmín, Rosa, Musgo" },
+            { id: "f8",  name: "Miss Dior",          brand: "Dior",                type: "EDP", price: 18600, notes: "Peonía, Rosa, Sándalo" },
+            { id: "f9",  name: "212 VIP",            brand: "Carolina Herrera",    type: "EDP", price: 19200, notes: "Champán, Gardenia, Almizcle" },
+            { id: "f10", name: "Nina",               brand: "Nina Ricci",          type: "EDT", price: 13100, notes: "Manzana, Rosa, Vainilla" }
+        ];
+
+        const list = document.getElementById('perfume-list');
+
+        PERFUMES_FEMME.forEach((p, i) => {
+            const card = document.createElement('div');
+            card.className = 'perfume-card reveal';
+            card.style.animationDelay = `${i * 0.07}s`;
+            card.innerHTML = `
+                <img src="img_femme.png" alt="${p.name} - ${p.brand}" class="card-img">
+                <div class="card-body">
+                    <span class="perfume-badge">${p.type}</span>
+                    <p class="perfume-brand">${p.brand}</p>
+                    <h3 class="perfume-name">${p.name}</h3>
+                    <p style="font-size: 0.65rem; color: var(--color-text-muted); margin-bottom: 1rem; font-style: italic;">${p.notes}</p>
+                    <p class="perfume-price-label">Decant 5ml · Precio</p>
+                    <p class="perfume-price">$${p.price.toLocaleString('es-AR')} <span>ARS</span></p>
+                    <a href="#contacto" class="btn-card">Consultar ▸</a>
+                </div>
+            `;
+            list.appendChild(card);
+        });
+
+        // Tarjeta Sur Commande
+        const surCommande = document.createElement('div');
+        surCommande.className = 'sur-commande-card reveal';
+        surCommande.style.animationDelay = '0.8s';
+        surCommande.innerHTML = `
+            <span class="sc-badge">Encargo</span>
+            <img src="img_sur_commande.png" alt="Fragancia a pedido" class="sc-img">
+            <div class="sc-body">
+                <p class="sc-subtitle">Servicio Exclusivo</p>
+                <h3 class="sc-title">Sur Commande</h3>
+                <p class="sc-desc">
+                    ¿No encontrás tu fragancia? Nosotros la buscamos, la conseguimos y la empaquetamos 
+                    en un decant para vos. Pedir es así de simple.
+                </p>
+                <a href="#contacto" class="btn-sc">Encargá tu fragancia</a>
+            </div>
+        `;
+        list.appendChild(surCommande);
+    </script>
+    <!-- Botón Flotante de WhatsApp para conectar con el Agente Concierge -->
+    <a href="https://wa.me/5491178285444?text=Bonjour,%20monsieur!%20Me%20gustar%C3%ADa%20recibir%20asesoramiento%20de%20su%20Concierge."
+        class="whatsapp-float" target="_blank" title="Habla con nuestro Concierge">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
+            <path
+                d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c-.003 1.396.366 2.76 1.062 3.961L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c.004-3.639 2.961-6.592 6.608-6.592a6.56 6.56 0 0 1 4.66 1.932 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.608 6.592z" />
+            <path
+                d="M11.846 9.771c-.192-.096-1.139-.563-1.315-.628-.176-.065-.304-.096-.432.096-.128.192-.496.628-.608.761-.112.132-.224.148-.416.052-.192-.096-.81-.299-1.543-.953-.574-.51-1.033-1.144-1.155-1.336-.121-.192-.013-.296.083-.392.087-.087.192-.224.288-.336.096-.112.128-.192.192-.32.064-.128.032-.24-.016-.336-.048-.096-.432-1.04-.592-1.424-.156-.375-.316-.324-.432-.33-.112-.005-.24-.006-.368-.006-.128 0-.336.048-.512.24-.176.192-.672.656-.672 1.596 0 .94.688 1.848.784 1.976.096.128 1.352 2.066 3.276 2.888.456.195.812.312 1.09.4.458.146.875.125 1.204.076.366-.055 1.139-.465 1.3-.914.16-.448.16-.832.112-.914-.048-.082-.176-.128-.368-.224z" />
+        </svg>
+    </a>
+</body>
+</html>

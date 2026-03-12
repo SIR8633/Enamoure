@@ -1,0 +1,26 @@
+{
+  "homme": [
+    { "id": "h1", "name": "1 Million", "brand": "Paco Rabanne", "type": "EDT", "price": 13400 },
+    { "id": "h2", "name": "Bleu de Chanel", "brand": "Chanel", "type": "EDP", "price": 21900 },
+    { "id": "h3", "name": "Sauvage", "brand": "Dior", "type": "EDP", "price": 18600 },
+    { "id": "h4", "name": "Acqua di Gio", "brand": "Giorgio Armani", "type": "EDP", "price": 16951 },
+    { "id": "h5", "name": "Invictus", "brand": "Paco Rabanne", "type": "EDT", "price": 12800 },
+    { "id": "h6", "name": "The One", "brand": "Dolce & Gabbana", "type": "EDP", "price": 15800 },
+    { "id": "h7", "name": "Polo Red", "brand": "Ralph Lauren", "type": "EDP", "price": 11600 },
+    { "id": "h8", "name": "Scandal Pour Homme", "brand": "Jean Paul Gaultier", "type": "EDP", "price": 18400 },
+    { "id": "h9", "name": "Eros", "brand": "Versace", "type": "EDP", "price": 13800 },
+    { "id": "h10", "name": "Fahrenheit", "brand": "Dior", "type": "EDT", "price": 17600 }
+  ],
+  "femme": [
+    { "id": "f1", "name": "Scandal", "brand": "Jean Paul Gaultier", "type": "EDP", "price": 18400 },
+    { "id": "f2", "name": "Good Girl", "brand": "Carolina Herrera", "type": "EDP", "price": 18800 },
+    { "id": "f3", "name": "Black Opium", "brand": "Yves Saint Laurent", "type": "EDP", "price": 18700 },
+    { "id": "f4", "name": "La Vie Est Belle", "brand": "Lancôme", "type": "EDP", "price": 19900 },
+    { "id": "f5", "name": "Libre", "brand": "Yves Saint Laurent", "type": "EDP", "price": 15000 },
+    { "id": "f6", "name": "Coco Mademoiselle", "brand": "Chanel", "type": "EDP", "price": 21000 },
+    { "id": "f7", "name": "Flowerbomb", "brand": "Viktor & Rolf", "type": "EDP", "price": 17000 },
+    { "id": "f8", "name": "Miss Dior", "brand": "Dior", "type": "EDP", "price": 18600 },
+    { "id": "f9", "name": "212 VIP", "brand": "Carolina Herrera", "type": "EDP", "price": 19200 },
+    { "id": "f10", "name": "Nina", "brand": "Nina Ricci", "type": "EDT", "price": 13100 }
+  ]
+}
